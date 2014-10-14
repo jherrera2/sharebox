@@ -35,8 +35,9 @@ class AssetsController < ApplicationController
     if @asset
       send_file @asset.uploaded_file.path, :type => @asset.uploaded_file_content_type
     else
-      flash[:error] = "Dont be cheeky"
+      flash[:alert] = "Dont be cheeky"
       redirect_to assets_path
+      #format.html { redirect_to assets_path, notice: 'Widget was successfully created.' }
     end
   end
 
